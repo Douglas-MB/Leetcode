@@ -3,6 +3,37 @@ import java.util.Map;
 
 public non-sealed class FirstTry implements Leetcode{
 	@Override
+	public int strStr(String haystack, String needle) {
+
+		if (needle.length() > haystack.length()){
+			return -1;
+		}
+
+		if (needle.length() == haystack.length()){
+			if (needle.equals(haystack)){
+				return 0;
+			}
+			return -1;
+		}
+		for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+			int k = 0;
+			for (int j = 0; j < needle.length(); j++) {
+				if (haystack.charAt(i + j) != needle.charAt(j)){
+					k = j;
+					break;
+				}
+				k = j+1;
+			}
+			System.out.println(k);
+			if(k == needle.length()){
+				return i;
+			}
+			System.out.println("!!! "+i);
+		}
+		return -1;
+	}
+
+	@Override
 	public int[] twoSum(int[] nums, int target) {
 		Map<Integer, Integer> hashtable = new HashMap<>();
 
