@@ -1,4 +1,4 @@
-public sealed interface Leetcode permits FirstTry {
+public sealed interface Leetcode permits FirstTry, OtherSTries {
 	int[] twoSum(int[] nums, int target);
 	boolean isPalindrome(int x);
 	int romanToInt(String romanNum);
