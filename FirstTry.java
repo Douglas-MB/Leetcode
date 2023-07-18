@@ -3,6 +3,33 @@ import java.util.Map;
 
 public non-sealed class FirstTry implements Leetcode{
 	@Override
+	public int searchInsert(int[] nums, int target) {
+		int left = 0;
+		int right = nums.length - 1;
+		int mid = 0;
+		while (left <= right) {
+			mid = left + (right - left) / 2;
+
+			if (nums[mid] == target) {
+				return mid;
+			} else if (nums[mid] < target) {
+				left = mid + 1;
+			} else {
+				right = mid - 1;
+			}
+		}
+
+
+		if (target > nums[mid]){
+			return mid + 1;
+		}
+		if (target < nums[mid]){
+			return mid;
+		}
+		return -1;
+	}
+
+	@Override
 	public int strStr(String haystack, String needle) {
 
 		if (needle.length() > haystack.length()){

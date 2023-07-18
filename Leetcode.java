@@ -9,4 +9,6 @@ public sealed interface Leetcode permits FirstTry, OtherSTries {
 	int removeElement(int[] nums, int val);
 
 	int strStr(String haystack, String needle);
+
+	int searchInsert(int[] nums, int target);
 }

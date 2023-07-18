@@ -37,6 +37,11 @@ public non-sealed class OtherSTries implements Leetcode{
 	}
 
 	@Override
+	public int searchInsert(int[] nums, int target) {
+		return 0;
+	}
+
+	@Override
 	public int strStr(String haystack, String needle) {
 
 		for (int i = 0; i <= haystack.length() - needle.length(); i++) {
