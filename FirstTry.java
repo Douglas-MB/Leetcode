@@ -3,6 +3,31 @@ import java.util.Map;
 
 public non-sealed class FirstTry implements Leetcode{
 	@Override
+	public int lengthOfLastWord(String s) {
+		if (s.length() == 1){
+			return 1;
+		}
+		int i = 0;
+		int cntChar = 0;
+
+		while ( i++ < s.length() ){
+			if (s.charAt(s.length() - i) != 32 ){
+				cntChar++;
+			}
+			if (s.charAt(s.length() - i) == 32 && cntChar > 0 ){
+				break;
+			}
+		}
+		return cntChar;
+	}
+
+	@Override
+	public int[] plusOne(int[] digits) {
+
+		return digits;
+	}
+
+	@Override
 	public int searchInsert(int[] nums, int target) {
 		int left = 0;
 		int right = nums.length - 1;

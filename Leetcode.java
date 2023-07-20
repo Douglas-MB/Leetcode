@@ -11,4 +11,7 @@ public sealed interface Leetcode permits FirstTry, OtherSTries {
 	int strStr(String haystack, String needle);
 
 	int searchInsert(int[] nums, int target);
+	int lengthOfLastWord(String s);
+
+	int[] plusOne(int[] digits);
 }
