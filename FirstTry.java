@@ -2,6 +2,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 public non-sealed class FirstTry implements Leetcode{
+
+	@Override
+	public String addBinary(String a, String b) {
+		StringBuilder result = new StringBuilder();
+
+		int aux = Math.max(a.length(), b.length());
+		int carry = 0;
+
+		for (int i = 0; i < aux; i++) {
+			int charA = i < a.length() ? a.charAt(a.length() - 1 - i) - '0' : 0;
+			int charB = i < b.length() ? b.charAt(b.length() - 1 - i) - '0' : 0;
+
+			int sum = charA ^ charB ^ carry;
+			carry = (charA & charB) | (charA & carry) | (charB & carry);
+
+			result.insert(0, (char) (sum + '0'));
+		}
+
+		if (carry == 1) {
+			result.insert(0, '1');
+		}
+
+		return result+"";
+	}
+
+
 	@Override
 	public int lengthOfLastWord(String s) {
 		if (s.length() == 1){
@@ -23,6 +49,33 @@ public non-sealed class FirstTry implements Leetcode{
 
 	@Override
 	public int[] plusOne(int[] digits) {
+
+		if (digits.length == 1 && digits[0] == 9){
+			digits = new int[digits.length + 1];
+			digits[0] = 1;
+			digits[1] = 0;
+			return digits;
+		}
+		if (digits[digits.length - 1] != 9){
+			digits[digits.length - 1]++;
+			return digits;
+		}
+		for (int i = digits.length - 1; i > 0 ; i--) {
+			if (digits[i] == 9){
+				digits[i] = 0;
+			}
+			if (digits[i] == 0 && digits[i - 1] != 9){
+				digits[i - 1]++;
+				return digits;
+			}
+			if (i == 1 && digits[i] == 0 && digits[i-1] == 9){
+				digits = new int[digits.length + 1];
+				digits[0] = 1;
+				for (int j = 1; j < digits.length; j++) {
+					digits[j] = 0;
+				}
+			}
+		}
 
 		return digits;
 	}

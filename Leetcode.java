@@ -14,4 +14,6 @@ public sealed interface Leetcode permits FirstTry, OtherSTries {
 	int lengthOfLastWord(String s);
 
 	int[] plusOne(int[] digits);
+
+	String addBinary(String a, String b);
 }
